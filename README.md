@@ -3,7 +3,7 @@
 ## Web API
 
 + ### Create race
-***Route***: /api/race/create/year  
+***Route***: /api/race/create/{year}  
 ***Request***: POST
 
 + ### Add vehicle to race
@@ -57,7 +57,7 @@
 
 
 + ### Find vehicle(s)
-***Route***: /api/race/findVehicles/{team?}&{model?}&{manufacturingDate?}&{status?}&{distance?}&{sortOrder?}  
+***Route***: /api/race/findVehicles?{team?}&{model?}&{manufacturingDate?}&{status?}&{distance?}&{sortOrder?}  
 ***Request***: GET  
 ***Note***: manufacturingDate is in format 'YYYY-MM-DD'; status can be *Pending, Running, Repairing, Wracked, Finished*; sortOrder can be *asc* or *desc*
 
