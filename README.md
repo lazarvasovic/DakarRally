@@ -28,8 +28,8 @@
     "teamName": "team",
     "model": "VW",
     "manufacturingDate": "2020-01-11",
-    "vehicleType": "Car",
-    "vehicleSubtype": "Sports"
+    "vehicleType": "Motorcycle",
+    "vehicleSubtype": "Sport"
 }  
 ***Note***: When vehicle type is Truck then "vehicleSubtype" attribute needs to be removed.  
 
@@ -49,7 +49,7 @@
 + ### Get leaderboard for specific vehicle type
 ***Route***: /api/race/getLeaderboard/{typeName}  
 ***Request***: GET  
-
+***Note***: typeName can be *Car, Motorcycle* or *Truck*
 
 + ### Get vehicle statistics
 ***Route***: /api/race/getVehicleStatistic/{vehicleId}  
