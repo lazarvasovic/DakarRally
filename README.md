@@ -17,7 +17,7 @@
     "vehicleType": "Car",
     "vehicleSubtype": "Sports"
 }  
-***Note***: When vehicle type is Truck then "vehicleSubtype" attribute needs to be removed.
+***Note***: "vehicleType" can be *Car*, *Truck* or *Motorcycle*. When "vehicleType" is *Car* then "vehicleSubtype" can be *Terrain* or *Sports*. When "vehicleType" is *Motorcycle* then "vehicleSubtype" can be *Sport* or *Cross*. When vehicle type is *Truck* then "vehicleSubtype" attribute needs to be removed.
 
 + ### Update vehicle
 ***Route***: /api/race/updateVehicle  
@@ -31,7 +31,7 @@
     "vehicleType": "Motorcycle",
     "vehicleSubtype": "Sport"
 }  
-***Note***: When vehicle type is Truck then "vehicleSubtype" attribute needs to be removed.  
+***Note***: "vehicleType" can be *Car*, *Truck* or *Motorcycle*. When "vehicleType" is *Car* then "vehicleSubtype" can be *Terrain* or *Sports*. When "vehicleType" is *Motorcycle* then "vehicleSubtype" can be *Sport* or *Cross*. When vehicle type is *Truck* then "vehicleSubtype" attribute needs to be removed.
 
 + ### Remove vehicle from race
 ***Route***: /api/race/startRace/{raceId}  
