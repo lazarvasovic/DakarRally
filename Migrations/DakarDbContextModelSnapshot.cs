@@ -47,6 +47,9 @@ namespace DakarRally.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("INTEGER");
 
+                    b.Property<double>("TimeElapsed")
+                        .HasColumnType("REAL");
+
                     b.Property<int>("Year")
                         .HasColumnType("INTEGER");
 

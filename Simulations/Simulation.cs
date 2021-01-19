@@ -11,7 +11,7 @@ namespace DakarRally.Simulations
 {
     public class Simulation
     {
-        public static double RaceDistance = 2000;
+        public static double RaceDistance = 10000;
         public static double dt = 1;
         public static double t = 0;
         public static Random random = new Random();
@@ -93,11 +93,12 @@ namespace DakarRally.Simulations
                         }
                     }
 
-                    Thread.Sleep((int)(dt * 10000));
-
-                    _dakarRepo.SaveChanges();
+                    Thread.Sleep((int)(dt * 2000));
 
                     t += dt;
+                    _dakarRepo.GetRace(raceId).TimeElapsed = t;
+
+                    _dakarRepo.SaveChanges();
                 }
 
                 _dakarRepo.FinishRace();

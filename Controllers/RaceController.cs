@@ -49,6 +49,11 @@ namespace DakarRally.Controllers
         {
             VehicleSubtypeModel subtypeModel = _dakarRepo.GetVehicleSubtype(vehicle.VehicleType, vehicle.VehicleSubtype);
 
+            if(subtypeModel == null)
+            {
+                return BadRequest("Invalid vehicle type and/or subtype.");
+            }
+
             VehicleModel vehicleToCreate = _mapper.Map<VehicleModel>(vehicle);
             vehicleToCreate.VehicleSubtype = subtypeModel;
 
@@ -68,10 +73,19 @@ namespace DakarRally.Controllers
             VehicleModel vehicleToUpdate = _dakarRepo.UpdateVehicle(vehicle.Id, out string status);
 
             if (vehicleToUpdate == null)
+            {
                 return BadRequest(status);
+            }
+
+            VehicleSubtypeModel subtypeModel = _dakarRepo.GetVehicleSubtype(vehicle.VehicleType, vehicle.VehicleSubtype);
+
+            if (subtypeModel == null)
+            {
+                return BadRequest("Invalid vehicle type and/or subtype.");
+            }
 
             _mapper.Map(vehicle, vehicleToUpdate);
-            vehicleToUpdate.VehicleSubtype = _dakarRepo.GetVehicleSubtype(vehicle.VehicleType, vehicle.VehicleSubtype);
+            vehicleToUpdate.VehicleSubtype = subtypeModel;
 
             _dakarRepo.SaveChanges();
 
@@ -181,7 +195,7 @@ namespace DakarRally.Controllers
 
             RaceStatusDto raceStatus = new RaceStatusDto
             {
-                TimeElapsed = Simulation.t,
+                TimeElapsed = race.TimeElapsed,
                 RaceStatus = race.Status.ToString(),
                 VehiclesByType = vehicleByType,
                 VehiclesByStatus = vehicleByStatus

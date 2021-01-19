@@ -17,5 +17,7 @@ namespace DakarRally.Models
 
         [Required]
         public RaceStatus Status { get; set; }
+
+        public double TimeElapsed { get; set; }
     }
 }

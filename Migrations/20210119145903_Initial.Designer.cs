@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DakarRally.Migrations
 {
     [DbContext(typeof(DakarDbContext))]
-    [Migration("20210118110015_Initial")]
+    [Migration("20210119145903_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -48,6 +48,9 @@ namespace DakarRally.Migrations
 
                     b.Property<int>("Status")
                         .HasColumnType("INTEGER");
+
+                    b.Property<double>("TimeElapsed")
+                        .HasColumnType("REAL");
 
                     b.Property<int>("Year")
                         .HasColumnType("INTEGER");

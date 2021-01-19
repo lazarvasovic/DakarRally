@@ -126,7 +126,7 @@ namespace DakarRally.Data
                     return false;
                 }
 
-                status = "Race is already started!";
+                status = "One race is already started!";
                 return false;
             }
 
@@ -138,7 +138,7 @@ namespace DakarRally.Data
         {
             var vehicles = _dakarDbContext.Vehicles.Include(x => x.Race).Include(x => x.VehicleSubtype)
                 .Include(x => x.VehicleSubtype.VehicleType).Where(x => x.Race.Status == RaceStatus.Running)
-                .OrderByDescending(x => x.DistanceReached);
+                .OrderByDescending(x => x.DistanceReached).ThenBy(x => x.FinishTime);
 
             return vehicles.ToList();
         }
@@ -148,7 +148,7 @@ namespace DakarRally.Data
             var vehicles = _dakarDbContext.Vehicles.Include(x => x.Race)
                 .Include(x => x.VehicleSubtype).Include(x => x.VehicleSubtype.VehicleType)
                 .Where(x => x.Race.Status == RaceStatus.Running && x.VehicleSubtype.VehicleType.TypeName == type)
-                .OrderByDescending(x => x.DistanceReached);
+                .OrderByDescending(x => x.DistanceReached).ThenBy(x => x.FinishTime);
 
             return vehicles.ToList();
         }

@@ -14,7 +14,8 @@ namespace DakarRally.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Year = table.Column<int>(type: "INTEGER", nullable: false),
-                    Status = table.Column<int>(type: "INTEGER", nullable: false)
+                    Status = table.Column<int>(type: "INTEGER", nullable: false),
+                    TimeElapsed = table.Column<double>(type: "REAL", nullable: false)
                 },
                 constraints: table =>
                 {
